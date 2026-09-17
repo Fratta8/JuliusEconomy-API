@@ -1,2 +1,2 @@
 # JuliusEconomy-API
-uma api simples criada por alunos como projeto para nota
+uma api simples criada por alunos, sobre controle de gastos 
