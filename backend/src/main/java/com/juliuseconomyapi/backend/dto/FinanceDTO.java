@@ -98,12 +98,12 @@ public class FinanceDTO {
         this.category = categoria;
     }
 
-    public void setData(String data) {
-        this.date = data;
+    public void setData(String date) {
+        this.date = date;
     }
 
-    public void setPaga(Boolean paga) {
-        this.ok = paga;
+    public void setPaga(Boolean ok) {
+        this.ok = ok;
     }
 
 }
