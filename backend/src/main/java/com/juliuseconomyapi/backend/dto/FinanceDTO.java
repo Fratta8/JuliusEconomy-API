@@ -61,23 +61,23 @@ public class FinanceDTO {
         return id;
     }
 
-    public String getDescricao() {
+    public String getDescription() {
         return description;
     }
 
-    public double getValor() {
+    public double getValue() {
         return value;
     }
 
-    public String getCategoria() {
+    public String getCategory() {
         return category;
     }
 
-    public String getData() {
+    public String getDate() {
         return date;
     }
 
-    public Boolean getPaga() {
+    public Boolean getOk() {
         return ok;
     }
 
@@ -86,23 +86,23 @@ public class FinanceDTO {
         this.id = id;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescription(String descricao) {
         this.description = descricao;
     }
 
-    public void setValor(double valor) {
+    public void setValue(double valor) {
         this.value = valor;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategory(String categoria) {
         this.category = categoria;
     }
 
-    public void setData(String date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public void setPaga(Boolean ok) {
+    public void setOk(Boolean ok) {
         this.ok = ok;
     }
 
