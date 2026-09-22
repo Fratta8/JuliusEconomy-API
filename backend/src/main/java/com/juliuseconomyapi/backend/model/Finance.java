@@ -8,14 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-// @Entity diz ao JPA que essa classe representa uma tabela no banco de dados.
+// @Entity diz ao jpa que essa classe representa uma tabela no banco de dados
 @Entity
-// Nome da tabela explícito, para não depender do nome da classe.
+
 @Table(name = "finance")
 public class Finance {
 
     @Id
-    // Id gerado automaticamente pelo banco (auto_increment).
+    // Id gerado automaticamente pelo banco
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -29,16 +29,19 @@ public class Finance {
     @Column(length = 50)
     private String category;
 
-    // Guardada como String no formato AAAA-MM-DD, conforme especificação.
+    // Guarda como String no formato de data padrao(como do pc)
     @Column(name = "data_despesa")
     private String date;
 
     @Column(nullable = false)
     private Boolean ok = false;
 
+    //o jpa precisa de um construtor vazio para ciar obj 
     public Finance() {
     }
 
+    // recebe os dados do financedto
+    //ok começa sempre como false
     public Finance(String description, double value, String category, String date) {
         this.description = description;
         this.value = value;
@@ -46,6 +49,8 @@ public class Finance {
         this.date = date;
         this.ok = false;
     }
+
+//getters e setters
 
     public Long getId() {
         return id;
@@ -95,6 +100,7 @@ public class Finance {
         this.ok = ok;
     }
 
+    // mostra os dados fomatados 
     @Override
     public String toString() {
         return "Despesas{" +

@@ -15,6 +15,7 @@ public class FinanceService {
 
     private final FinanceRepository financeRepository;
 
+    //recebe o repository
     public FinanceService(FinanceRepository financeRepository) {
         this.financeRepository = financeRepository;
     }

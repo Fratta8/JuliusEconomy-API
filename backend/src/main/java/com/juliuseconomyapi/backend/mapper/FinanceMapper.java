@@ -3,6 +3,7 @@ package com.juliuseconomyapi.backend.mapper;
 import com.juliuseconomyapi.backend.dto.FinanceDTO;
 import com.juliuseconomyapi.backend.model.Finance;
 
+//toDTO pega oq veio do banco e transforma em dto
 public class FinanceMapper {
 
     public static FinanceDTO toDTO(Finance finance) {
@@ -18,6 +19,7 @@ public class FinanceMapper {
 
         return dto;
     }
+    //toEntity pega oq veio do dto e transforma em entity
 
     public static Finance toEntity(FinanceDTO dto) {
 

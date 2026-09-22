@@ -8,44 +8,40 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
-// @Schema documenta essa classe na interface do Swagger.
+// @Schema documentacao para o swagger
 @Schema(description = "Despesa Data Transfer Object")
 public class FinanceDTO {
 
-    // READ_ONLY: o cliente não envia o id, ele é gerado no banco.
+    // o id é gerado pelo banco, nao é necessario perguntar ao usuario
     @Schema(description = "Identificador único da despesa",
             example = "1",
             accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
-    @NotBlank(message = "description is required")
-    @Size(max = 150, message = "description must not exceed 150 characters")
+    @NotBlank(message = "descrição é necessária")
+    @Size(max = 150, message = "descrição não pode ultrapassar 150 caracteres")
     @Schema(description = "Descrição da despesa", example = "Conta de luz")
     private String description;
 
-    @NotNull(message = "value is required")
-    @Positive(message = "value must be greater than 0")
+    @NotNull(message = "valor é necessário")
+    @Positive(message = "valor deve ser maior que 0")
     @Schema(description = "Valor da despesa", example = "111.11")
     private double value;
 
-    @Size(max = 50, message = "category must not exceed 50 characters")
+    @Size(max = 50, message = "categoria não pode ultrapassar 50 caracteres")
     @Schema(description = "Categoria da despesa", example = "Moradia")
     private String category;
 
-    // Pattern não valida valores nulos, então o campo continua opcional.
+    // @Pattern nao pd validar valores nulos
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "date must be in format AAAA-MM-DD")
     @Schema(description = "Data da despesa no formato AAAA-MM-DD", example = "2026-09-17")
     private String date;
 
-    // READ_ONLY: "paga" só é alterada pelo endpoint PATCH /marcar-paga,
-    // não pelo cliente via POST/PUT.
+    // valor do ok nao pd ser alterado pelo usuario
     @Schema(description = "Indica se a despesa já foi paga",
             example = "false",
             accessMode = Schema.AccessMode.READ_ONLY)
     private Boolean ok;
-
-    public FinanceDTO() {
-    }
 
     public FinanceDTO(Long id, String description, double value, String category, String date, Boolean ok) {
         this.id = id;
@@ -56,7 +52,7 @@ public class FinanceDTO {
         this.ok = ok;
     }
 
-    // Getters
+    // gettres e setters
     public Long getId() {
         return id;
     }
@@ -81,7 +77,6 @@ public class FinanceDTO {
         return ok;
     }
 
-    // Setters
     public void setId(Long id) {
         this.id = id;
     }

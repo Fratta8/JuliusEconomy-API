@@ -30,10 +30,13 @@ public class FinanceController {
         this.financeService = financeservice;
 
     }
+    // getAll   rota get q lista todas as despesas
     @GetMapping
     public List<FinanceDTO> getAll(){
         return financeService.getAllFinaces();
     }
+
+    //getById   rota get q busca uma despesa pelo id
     @GetMapping("/{id}")
     public ResponseEntity<FinanceDTO> getById(@PathVariable Long id){
         return financeService.getFinanceById(id)
@@ -42,11 +45,13 @@ public class FinanceController {
     
     }
 
+    //create   rota post q cria uma despesa
     @PostMapping
     public ResponseEntity<FinanceDTO> create(@Valid @RequestBody FinanceDTO financeDTO){
         return ResponseEntity.status(201).body(financeService.createFinance(financeDTO));
     }
 
+    //update   rota put q atualiza uma despesa
     @PutMapping("/{id}")
     public ResponseEntity<FinanceDTO> update(@PathVariable Long id, @Valid @RequestBody FinanceDTO financeDTO){
         return financeService.updateFinance(id, financeDTO) 
@@ -54,6 +59,7 @@ public class FinanceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    //delete   rota delete q deleta uma despesa
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         return financeService.deleteFinance(id)
@@ -61,6 +67,7 @@ public class FinanceController {
                 : ResponseEntity.notFound().build();
     }
 
+    //aprove   rota patch q marca uma despesa como paga
     @PatchMapping("/{id}/aprove")
     public ResponseEntity<FinanceDTO> Aprove(@PathVariable Long id){
         return financeService.Aprove(id)
