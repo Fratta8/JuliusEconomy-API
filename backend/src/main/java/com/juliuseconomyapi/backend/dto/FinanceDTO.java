@@ -26,7 +26,7 @@ public class FinanceDTO {
     @NotNull(message = "valor é necessário")
     @Positive(message = "valor deve ser maior que 0")
     @Schema(description = "Valor da despesa", example = "111.11")
-    private double value;
+    private Double value;
 
     @Size(max = 50, message = "categoria não pode ultrapassar 50 caracteres")
     @Schema(description = "Categoria da despesa", example = "Moradia")
@@ -43,7 +43,10 @@ public class FinanceDTO {
             accessMode = Schema.AccessMode.READ_ONLY)
     private Boolean ok;
 
-    public FinanceDTO(Long id, String description, double value, String category, String date, Boolean ok) {
+    public FinanceDTO() {
+    }
+
+    public FinanceDTO(Long id, String description, Double value, String category, String date, Boolean ok) {
         this.id = id;
         this.description = description;
         this.value = value;
@@ -61,7 +64,7 @@ public class FinanceDTO {
         return description;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
@@ -85,7 +88,7 @@ public class FinanceDTO {
         this.description = descricao;
     }
 
-    public void setValue(double valor) {
+    public void setValue(Double valor) {
         this.value = valor;
     }
 

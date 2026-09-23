@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gastos.api.dto.DespesaDTO;
-import com.gastos.api.service.DespesaService;
+import com.juliuseconomyapi.backend.dto.FinanceDTO;
+import com.juliuseconomyapi.backend.service.FinanceService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -33,7 +33,7 @@ public class FinanceController {
     // getAll   rota get q lista todas as despesas
     @GetMapping
     public List<FinanceDTO> getAll(){
-        return financeService.getAllFinaces();
+        return financeService.getAllFinance();
     }
 
     //getById   rota get q busca uma despesa pelo id
@@ -69,8 +69,8 @@ public class FinanceController {
 
     //aprove   rota patch q marca uma despesa como paga
     @PatchMapping("/{id}/aprove")
-    public ResponseEntity<FinanceDTO> Aprove(@PathVariable Long id){
-        return financeService.Aprove(id)
+    public ResponseEntity<FinanceDTO> approve(@PathVariable Long id){
+        return financeService.approve(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
