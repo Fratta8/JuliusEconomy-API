@@ -6,6 +6,8 @@ import com.juliuseconomyapi.backend.model.Finance;
 //toDTO pega oq veio do banco e transforma em dto
 public class FinanceMapper {
 
+    private FinanceMapper() {}
+
     public static FinanceDTO toDTO(Finance finance) {
 
         return new FinanceDTO(
