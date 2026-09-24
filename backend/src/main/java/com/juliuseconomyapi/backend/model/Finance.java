@@ -1,8 +1,9 @@
 package com.juliuseconomyapi.backend.model;
 
-
+//usamos o Bigdciaml para valores exatos
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,7 +28,7 @@ public class Finance {
 
    
     @Column(nullable = false)
-    private double value;
+    private BigDecimal value;
 
     @Column(length = 50)
     private String category;
@@ -117,4 +118,6 @@ public class Finance {
     }
 
 }
+
+
 
