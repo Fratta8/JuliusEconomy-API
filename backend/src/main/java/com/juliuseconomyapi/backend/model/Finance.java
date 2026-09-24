@@ -27,7 +27,7 @@ public class Finance {
 
    
     @Column(nullable = false)
-    private BigDecimal value;
+    private double value;
 
     @Column(length = 50)
     private String category;
