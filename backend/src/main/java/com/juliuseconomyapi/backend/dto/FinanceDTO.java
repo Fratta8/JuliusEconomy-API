@@ -1,6 +1,9 @@
 package com.juliuseconomyapi.backend.dto;
 
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +29,7 @@ public class FinanceDTO {
     @NotNull(message = "valor é necessário")
     @Positive(message = "valor deve ser maior que 0")
     @Schema(description = "Valor da despesa", example = "111.11")
-    private Double value;
+    private BigDecimal value;
 
     @Size(max = 50, message = "categoria não pode ultrapassar 50 caracteres")
     @Schema(description = "Categoria da despesa", example = "Moradia")
@@ -35,7 +38,7 @@ public class FinanceDTO {
     // @Pattern nao pd validar valores nulos
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "date must be in format AAAA-MM-DD")
     @Schema(description = "Data da despesa no formato AAAA-MM-DD", example = "2026-09-17")
-    private String date;
+    private LocalDate date;
 
     // valor do ok nao pd ser alterado pelo usuario
     @Schema(description = "Indica se a despesa já foi paga",
@@ -46,7 +49,7 @@ public class FinanceDTO {
     public FinanceDTO() {
     }
 
-    public FinanceDTO(Long id, String description, Double value, String category, String date, Boolean ok) {
+    public FinanceDTO(Long id, String description, BigDecimal value, String category, LocalDate date, Boolean ok) {
         this.id = id;
         this.description = description;
         this.value = value;
@@ -64,7 +67,7 @@ public class FinanceDTO {
         return description;
     }
 
-    public Double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
@@ -72,7 +75,7 @@ public class FinanceDTO {
         return category;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -88,7 +91,7 @@ public class FinanceDTO {
         this.description = descricao;
     }
 
-    public void setValue(Double valor) {
+    public void setValue(BigDecimal valor) {
         this.value = valor;
     }
 
@@ -96,7 +99,7 @@ public class FinanceDTO {
         this.category = categoria;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -1,6 +1,9 @@
 package com.juliuseconomyapi.backend.model;
 
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,14 +27,14 @@ public class Finance {
 
    
     @Column(nullable = false)
-    private double value;
+    private BigDecimal value;
 
     @Column(length = 50)
     private String category;
 
     // Guarda como String no formato de data padrao(como do pc)
     @Column(name = "data_despesa")
-    private String date;
+    private LocalDate date;
 
     @Column(nullable = false)
     private Boolean ok = false;
@@ -42,7 +45,7 @@ public class Finance {
 
     // recebe os dados do financedto
     //ok começa sempre como false
-    public Finance(String description, double value, String category, String date) {
+    public Finance(String description, BigDecimal value, String category, LocalDate date) {
         this.description = description;
         this.value = value;
         this.category = category;
@@ -68,11 +71,11 @@ public class Finance {
         this.description = description;
     }
 
-    public double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 
@@ -84,11 +87,11 @@ public class Finance {
         this.category = category;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

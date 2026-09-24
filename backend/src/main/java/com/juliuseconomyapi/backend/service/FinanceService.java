@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.juliuseconomyapi.backend.dto.FinanceDTO;
 import com.juliuseconomyapi.backend.mapper.FinanceMapper;
-import com.juliuseconomyapi.backend.model.Finance;
 import com.juliuseconomyapi.backend.repository.FinanceRepository;
 
 
